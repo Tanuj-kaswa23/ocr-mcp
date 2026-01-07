@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  ocr-mcp:
+    build:
+      context: ..
+      dockerfile: mcp/Dockerfile
+    image: ocr-mcp:latest
+    container_name: ocr-mcp-server
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../sample_documents:/app/sample_documents:ro
+    restart: unless-stopped
+
